@@ -1,0 +1,7 @@
+pyyaml
+python-magic-bin
+groq
+python-docx
+openpyxl
+PyPDF2
+pandas

@@ -1,0 +1,57 @@
+# Where data files are stored
+data_folder: "data"
+
+# Where the data will be saved
+result_folder: "result"
+result_file: "summary.csv"
+
+# Maximum file size allowed in megabytes
+max_file_size_mb: 4
+
+# Allowed file extensions and their corresponding descriptions
+allowed_extensions:
+  .pdf: "PDF Document"
+  .doc: "Word Document"
+  .docx: "Word Document"
+  .xls: "Excel Spreadsheet"
+  .xlsx: "Excel Spreadsheet"
+  .csv: "CSV File"
+
+# Expected MIME types for the allowed file extensions
+expected_mime_types:
+  .pdf: "application/pdf"
+  .doc: "application/msword"
+  .docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  .xls: "application/vnd.ms-excel"
+  .xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  .csv: "text/plain"
+
+#Groq API Key
+groq_api_key: "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" #Can be obtained from https://groq.com
+groq_llm: "llama-3.1-70b-versatile"
+
+#Maximun words for chunking
+max_word: 5000
+
+#Sleep to prevent rate limitting
+sleep: 30
+
+#prompt for AI to summarize
+prompt: "
+  You are an AI document summarizer. I will provide you with a chunk of a document, and your task is to summarize it in a clear and concise way. Please focus on the key points, main ideas, and any critical information, while maintaining the context.
+  This is chunk number {chunk_number}.
+  Here is your document chunk:
+
+  {document_chunk}
+
+  Guidelines:
+  1. Keep the summary under minimun words.
+  2. Focus on the main points without losing context.
+  3. Ensure the summary flows naturally and is easy to understand.
+  4. If the chunk contains multiple sections, capture their essence in the summary.
+  5. Avoid repeating information unless necessary to maintain coherence.
+  6. If specific terms or references are mentioned, briefly explain them in the summary.
+
+  Return the summary in this format:
+  1. Do not send anything except the summary
+"
