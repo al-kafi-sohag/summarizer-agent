@@ -26,8 +26,8 @@ Summarizer Agent is an AI-powered tool designed to efficiently process and summa
    On Mac/Linux:
 
    ```sh
-        python -m venv venv
-        source venv/bin/activate
+    python -m venv venv
+    source venv/bin/activate
    ```
 
    On Windows:
